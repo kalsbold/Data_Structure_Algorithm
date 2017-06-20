@@ -1,4 +1,6 @@
 #include "SingleLink.h"
+#include "CircularLink.h"
+#include "DoubleLink.h"
 #include <iostream>
 using namespace std;
 
@@ -16,7 +18,7 @@ to do list
 void main(){
 	cout << "data structure and algorithm example" << endl;
 
-	SingleLink<int> list;
+	DoubleLink<int> list;
 
 	for (int i = 0; i < 10; i++){
 		list.insert_Node(i, i);
@@ -27,7 +29,7 @@ void main(){
 	list.insert_Head(100);
 	list.insert_Last(200);
 
-	SingleLink<int>::pointer ptr = list.get_Head();
+	DoubleLink<int>::pointer ptr = list.get_Head();
 	while (ptr != nullptr)
 	{
 		cout << ptr->_element << endl;

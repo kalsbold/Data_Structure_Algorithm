@@ -26,8 +26,8 @@ public:
 
 	//삭제
 	Node<T>* delete_Node(int index);
-	Node<T>* delete_Head(T t);
-	Node<T>* delete_Last(T t);
+	Node<T>* delete_Head();
+	Node<T>* delete_Last();
 	//크기
 	int Size();
 	//비었는지
@@ -41,7 +41,7 @@ public:
 	Node<T>* get_Head();
 	Node<T>* get_Last();
 private:
-	int node_count;
+	int node_count;// 꼬리 위치 태그.
 	Node<T> *p_head;
 
 	Node<T>* get_Node(int index);
@@ -102,13 +102,13 @@ Node<T>* SingleLink<T>::delete_Node(int index) {
 }
 
 template <typename T>
-Node<T>* SingleLink<T>::delete_Head(T t) {
+Node<T>* SingleLink<T>::delete_Head() {
 	return delete_Node(0);
 }
 
 template <typename T>
-Node<T>* SingleLink<T>::delete_Last(T t) {
-	return delete_Node(count);
+Node<T>* SingleLink<T>::delete_Last() {
+	return delete_Node(node_count);
 }
 
 template <typename T>

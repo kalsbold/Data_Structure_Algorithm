@@ -140,9 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="SingleLink.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CircularLink.h" />
+    <ClInclude Include="DoubleLink.h" />
     <ClInclude Include="SingleLink.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
