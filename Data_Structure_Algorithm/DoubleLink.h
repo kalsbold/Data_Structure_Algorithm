@@ -1,6 +1,6 @@
 #pragma once
 template <typename T>
-class DNode {
+struct DNode {
 public:
 	T _element;
 	DNode<T> * p_Next; //다음노드
@@ -14,8 +14,10 @@ template <typename T>
 class DoubleLink {
 public:
 	typedef DNode<T>*  pointer;
+
 	DoubleLink();
 	~DoubleLink();
+
 	//삽입. 위치와 값을 넘김.
 	DNode<T>* insert_Node(int index, T t);
 	//값을 넘김 // 첫머리에 삽입.
@@ -54,7 +56,7 @@ private:
 template <typename T>
 DoubleLink<T>::DoubleLink() :node_count(0), p_head(nullptr)
 {
-	p_head = new DNode<T>();
+	p_head = new DNode<T>(0,nullptr,nullptr);
 
 	p_head->p_Next = p_head;
 	p_head->p_Prev = p_head;
@@ -78,8 +80,8 @@ DNode<T>* DoubleLink<T>::insert_Node(int index, T t){
 		return nullptr;
 	//값,노드의 다음 노드 포인터와 노드 로 새 노드 생성.
 	DNode<T> * newNode = new DNode<T>(t, preNode->p_Prev, preNode);
-	preNode->p_Prev = newNode;  //노드의 다음 노드포인터에 새 노드 저장.
 	preNode->p_Prev->p_Next = newNode; //노드의 다음 노드 이전노드 포인터에 새노드 저장.
+	preNode->p_Prev = newNode;  //노드의 다음 노드포인터에 새 노드 저장.	
 	node_count++; // 노드 숫자 증가.
 	return newNode; //새노드 반환.
 
@@ -113,7 +115,7 @@ DNode<T>* DoubleLink<T>::delete_Node(int index){
 	if (index == node_count - 1) {
 		return delete_Last();
 	}
-	if (index >= node_count)//비었으면.
+	if (index >= node_count)//넘치면.
 		return nullptr;
 
 	DNode<T>* ptrNode = get_Node(index); //인덱스 노드 호출.
@@ -179,28 +181,28 @@ DNode<T>* DoubleLink<T>::get_Last(){
 
 template <typename T>
 DNode<T>* DoubleLink<T>::get_Node(int index){
-	if (index > node_count || index < 0) {
+	if (index >= node_count || index < 0) {
 		return nullptr;
 	}
-	int temp = 0;
+
+
 	if (index <= node_count/2)
 	{
-		temp = index;
 		cout << "index : " << index << endl;
 		DNode<T>* nextNode = p_head->p_Next;
-		while (temp) {
+		while (index) {
 			nextNode = nextNode->p_Next;
-			temp--;
+			index--;
 		}
 		return nextNode;
 	}
 	else {
-		temp = node_count - index - 1;
+		index = node_count - index - 1;
 		cout << "index : " << index << endl;
 		DNode<T>* preNode = p_head->p_Prev;
-		while (temp) {
+		while (index) {
 			preNode = preNode->p_Prev;
-			temp--;
+			index--;
 		}
 		return preNode;
 	}
