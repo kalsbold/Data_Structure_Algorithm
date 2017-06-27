@@ -29,5 +29,14 @@
     <ClInclude Include="DoubleLink.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="stack.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="queue.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="tree.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

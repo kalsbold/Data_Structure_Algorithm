@@ -144,3 +144,18 @@ template <typename T>
 Node<T>* SingleLink<T>::get_Last() {
 	return get_Node(node_count);
 }
+
+template <typename T>
+T SingleLink<T>::get_node(int index) {
+	return get_Node(index)->_element;
+}
+
+template <typename T>
+T SingleLink<T>::get_head() {
+	return get_Head()->_element;
+}
+
+template <typename T>
+T SingleLink<T>::get_last() {
+	return get_Last()->_element;
+}

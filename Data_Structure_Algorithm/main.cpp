@@ -1,6 +1,9 @@
 #include "SingleLink.h"
 #include "CircularLink.h"
 #include "DoubleLink.h"
+#include "stack.h"
+#include "queue.h"
+#include "tree.h"
 #include <iostream>
 using namespace std;
 
@@ -8,60 +11,85 @@ using namespace std;
 완료 목록
 링크드 리스트, 원형 링크드 리스트 구현 완료
 더블 링크드 리스트(구현 완료. 노드추가할때 포인터 순서지켜줘야 되었음.)
+스택, 큐 구현 완료.(리스트 사용.)
+트리 구현 완료(이진탐색트리 구현 완료)
 
 to do list
-리스트 부터 해시까지 구현.스택, 큐, 힙, 트리, 그래프, 해시
+리스트 부터 해시까지 구현. 힙,  그래프, 해시
 각종 알고리즘 문제 자료구조 이용해서 해결해보기.
-*/
-
-/*
-리스트 : 같은 속성의 객체를 이어놓은 것.
-데이터 + 포인터 의 구조.
 */
 
 void main(){
 	cout << "data structure and algorithm example" << endl;
 
-	DoubleLink<int> list;
-
-	for (int i = 0; i < 20; i++){
-		list.insert_Node(0, i*10);
-		cout << "index "<<i<<" element : " << list.get_node(i) << endl;
+	cout << "스택 돌려보기." << endl;
+	stack<int> Stack;
+	for (int i = 0; i < 10; i++)
+	{
+		Stack.push(i*10);
+	}
+	cout << " 첫번째 요소 : " << Stack.top() << endl;
+	for (int i = 0; i < 10; i++)
+	{
+		cout << i+1 << " 번째 요소 : " << Stack.pop() << endl;
 	}
 
-	cout << "list size : " << list.Size() << endl;
+	cout << "큐 돌려보기." << endl;
 
-	for (int i = 0; i < list.Size(); i++)
+	queue<int> Queue;
+	for (int i = 0; i < 20; i++)
 	{
-		cout << "index " << i << " element : " << list.get_node(i) << endl;
+		Queue.push(i * 10);
+	}
+	cout << " 첫번째 요소 : " << Queue.pop() << endl;
+
+	cout << "큐 크기 : " << Queue.size()<< endl;
+
+	int size = Queue.size();
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << i + 1 << " 번째 요소 : " << Queue.pop() << endl;
 	}
 
-	list.insert_Node(4,100);
-	list.insert_Last(200);
+	cout << "이진 트리 돌려보기." << endl;
+	Tree<int> tree;
+
+	tree.Insert_Node(90);
+	tree.Insert_Node(30);
+	tree.Insert_Node(20);
+	tree.Insert_Node(60);
+	tree.Insert_Node(70);
+	tree.Insert_Node(50);
+	
+	cout << endl << "전위 : ";
+	tree.Search_Preorder();
+
+	cout << endl << "중위 : ";
+	tree.Search_Inorder();
+
+	cout << endl << "후위 : ";
+	tree.Search_Postorder();
+
+	tree.Delete_Node(50);
 
 
-	cout << "list size : " << list.Size() << endl;
-	for (int i = 0; i < list.Size(); i++)
-	{
-		cout << "index " << i << " element : " << list.get_node(i) << endl;
+	cout << endl << "전위 : ";
+	tree.Search_Preorder();
+
+	cout << endl << "중위 : ";
+	tree.Search_Inorder();
+
+	cout << endl << "후위 : ";
+	tree.Search_Postorder();
+
+
+	cout << "30 이 있는지 검색합니다." << endl;
+
+	if (tree.Search_Node(30) == true) {
+		cout << "존재" << endl;
 	}
-
-	cout << "list size : " << list.Size() << endl;
-	list.delete_Head();
-	list.delete_Last();
-	list.delete_Node(3);
-
-	for (int i = 0; i < list.Size(); i++)
-	{
-		cout << "index "<<i<<" element : " << list.get_node(i) << endl;
-	}
-
-
-	DoubleLink<int>::pointer ptr = list.get_Head();
-	ptr = ptr->p_Next;
-	while (ptr != list.get_Head())
-	{
-		cout << ptr->_element << endl;
-		ptr = ptr->p_Next;
+	else {
+		cout << "없음." << endl;
 	}
 }
