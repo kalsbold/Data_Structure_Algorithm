@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="CircularLink.h" />
     <ClInclude Include="DoubleLink.h" />
+    <ClInclude Include="heap.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="SingleLink.h" />
     <ClInclude Include="stack.h" />

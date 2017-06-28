@@ -4,6 +4,7 @@
 #include "stack.h"
 #include "queue.h"
 #include "tree.h"
+#include "heap.h"
 #include <iostream>
 using namespace std;
 
@@ -15,6 +16,8 @@ using namespace std;
 트리 구현 완료(이진탐색트리 구현 완료)
 
 to do list
+//힙 구현중. 삭제에서 문제. 삽입할때 생긴 문제인것같음.
+https://github.com/ewliang/Binary-Tree-Heap/tree/master/HeapAndSort 참고중
 리스트 부터 해시까지 구현. 힙,  그래프, 해시
 각종 알고리즘 문제 자료구조 이용해서 해결해보기.
 */
@@ -92,4 +95,35 @@ void main(){
 	else {
 		cout << "없음." << endl;
 	}
+
+	heap<int> Heap;
+	for (int i = 0; i < 10; i++)
+	{
+		Heap.Insert_Node(10*i);
+	}
+
+
+	cout << endl << "전위 : ";
+	Heap.Search_Preorder();
+
+	cout << endl << "중위 : ";
+	Heap.Search_Inorder();
+
+	cout << endl << "후위 : ";
+	Heap.Search_Postorder();
+
+	Heap.Delete_Node();
+	Heap.Delete_Node();
+
+	cout << endl << "전위 : ";
+	Heap.Search_Preorder();
+
+	cout << endl << "중위 : ";
+	Heap.Search_Inorder();
+
+	cout << endl << "후위 : ";
+	Heap.Search_Postorder();
+
+	
+
 }
