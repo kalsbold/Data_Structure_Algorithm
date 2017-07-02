@@ -144,10 +144,12 @@
   <ItemGroup>
     <ClInclude Include="CircularLink.h" />
     <ClInclude Include="DoubleLink.h" />
+    <ClInclude Include="Graph.h" />
     <ClInclude Include="heap.h" />
     <ClInclude Include="queue.h" />
     <ClInclude Include="SingleLink.h" />
     <ClInclude Include="stack.h" />
+    <ClInclude Include="stdafx.h" />
     <ClInclude Include="tree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
