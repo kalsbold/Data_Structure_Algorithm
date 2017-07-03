@@ -14,3 +14,6 @@
 
 using namespace std;
 
+
+#define NOT_A_DIRECTED_GRAPH "Not a directed graph"
+#define NOT_AN_ACYCLIC_GRAPH "Not an acyclic graph"
